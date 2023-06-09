@@ -57,4 +57,4 @@ class Summary(prometheus_client.Summary):
             Sample("", {"quantile": str(quantile)}, self._estimator.query(quantile), None, None)
             for quantile, _ in self._invariants
         )
-        return *default_samples, *quantile_samples
+        return [*default_samples, *quantile_samples]
