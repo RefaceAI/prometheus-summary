@@ -48,6 +48,10 @@ class Summary(prometheus_client.Summary):
         )
 
     def observe(self, amount):
+        if not isinstance(amount, (float, int)):
+            raise TypeError("Summary only works with int or float")
+
+        amount = float(amount)
         super().observe(amount)
         self._estimator.observe(amount)
 
