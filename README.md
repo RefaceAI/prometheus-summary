@@ -80,7 +80,7 @@ To show request latency by `method`, `endpoint` and `quntile` use next query:
 max by (method, endpoint, quantile) (request_latency_seconds)
 ```
 
-To only 99-th quantile:
+To show only 99-th quantile:
 ```
 max by (method, endpoint) (request_latency_seconds{quantile="0.99")
 ```
