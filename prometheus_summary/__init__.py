@@ -1,3 +1,4 @@
+from threading import Lock
 from typing import Iterable, Sequence, Optional, Tuple
 
 import prometheus_client
@@ -28,6 +29,7 @@ class Summary(prometheus_client.Summary):
         self._invariants = invariants
         self._max_age_seconds = max_age_seconds
         self._age_buckets = age_buckets
+        self._lock = Lock()
         super().__init__(
             name,
             documentation,
@@ -53,12 +55,15 @@ class Summary(prometheus_client.Summary):
 
         amount = float(amount)
         super().observe(amount)
-        self._estimator.observe(amount)
+        with self._lock:
+            self._estimator.observe(amount)
 
     def _child_samples(self):
-        default_samples = super()._child_samples()
-        quantile_samples = tuple(
-            Sample("", {"quantile": str(quantile)}, self._estimator.query(quantile), None, None)
-            for quantile, _ in self._invariants
-        )
-        return [*default_samples, *quantile_samples]
+        with self._lock:
+            samples = [
+                Sample("", {"quantile": str(quantile)}, self._estimator.query(quantile), None, None)
+                for quantile, _ in self._invariants
+            ]
+
+        samples.extend(super()._child_samples())
+        return samples
