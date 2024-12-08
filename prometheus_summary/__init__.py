@@ -40,6 +40,9 @@ class Summary(prometheus_client.Summary):
             registry=registry,
             _labelvalues=_labelvalues,
         )
+        self._kwargs['invariants'] = invariants
+        self._kwargs['max_age_seconds'] = max_age_seconds
+        self._kwargs['age_buckets'] = age_buckets
 
     def _metric_init(self):
         super()._metric_init()
