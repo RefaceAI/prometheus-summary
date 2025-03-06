@@ -75,7 +75,7 @@ from prometheus_summary import Summary
 s = Summary("request_latency_seconds", "Description of summary", ["method", "endpoint"])
 ```
 
-To show request latency by `method`, `endpoint` and `quntile` use next query:
+To show request latency by `method`, `endpoint` and `quantile` use next query:
 ```
 max by (method, endpoint, quantile) (request_latency_seconds)
 ```
