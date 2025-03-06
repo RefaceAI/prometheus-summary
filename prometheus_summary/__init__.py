@@ -9,7 +9,7 @@ from .version import __version__
 
 
 class Summary(prometheus_client.Summary):
-    # pairs of (quantile, allowed error)
+    # pairs of (quantile, allowed error (inaccuracy))
     DEFAULT_INVARIANTS = ((0.50, 0.05), (0.90, 0.01), (0.99, 0.001))
 
     def __init__(
@@ -40,9 +40,9 @@ class Summary(prometheus_client.Summary):
             registry=registry,
             _labelvalues=_labelvalues,
         )
-        self._kwargs['invariants'] = invariants
-        self._kwargs['max_age_seconds'] = max_age_seconds
-        self._kwargs['age_buckets'] = age_buckets
+        self._kwargs["invariants"] = invariants
+        self._kwargs["max_age_seconds"] = max_age_seconds
+        self._kwargs["age_buckets"] = age_buckets
 
     def _metric_init(self):
         super()._metric_init()

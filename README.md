@@ -31,9 +31,9 @@ s.labels(method="POST", endpoint="/login").observe(3.4)
 
 ### With custom quantiles and precisions
 
-By default, metrics are observed for next quantile-precision pairs
+By default, metrics are observed for next (quantile, precision (inaccuracy)) pairs
 `((0.50, 0.05), (0.90, 0.01), (0.99, 0.001))`
-but you can provide your own value when creating the metric.
+but you can provide your own values when creating the metric.
 
 ```python
 from prometheus_summary import Summary
