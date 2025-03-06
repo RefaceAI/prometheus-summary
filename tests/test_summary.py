@@ -23,7 +23,7 @@ def test_random_observations(num_observations, summary, registry):
     labels = {"key": "value"}
     sum_observations = 0
     for _ in range(num_observations):
-        value = random.randint(1, 1000) / 100
+        value = random.uniform(0, 10)
         summary.labels(**labels).observe(value)
         sum_observations += value
 
