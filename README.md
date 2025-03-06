@@ -4,7 +4,7 @@ Prometheus summary with quantiles over configurable sliding time window
 ## Installation
 
 ```
-pip install prometheus-summary==0.1.3
+pip install prometheus-summary==0.1.4
 ```
 This package can be found on [PyPI](https://pypi.org/project/prometheus-summary/).
 
