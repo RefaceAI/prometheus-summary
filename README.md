@@ -82,5 +82,5 @@ max by (method, endpoint, quantile) (request_latency_seconds)
 
 To show only 99-th quantile:
 ```
-max by (method, endpoint) (request_latency_seconds{quantile="0.99")
+max by (method, endpoint) (request_latency_seconds{quantile="0.99"})
 ```
