@@ -9,7 +9,7 @@ Installation
 
 .. code-block:: console
 
-    pip install prometheus-summary==0.1.5
+    pip install prometheus-summary==0.1.6
 
 This package can be found on `PyPI <https://pypi.org/project/prometheus-summary/>`_.
 
