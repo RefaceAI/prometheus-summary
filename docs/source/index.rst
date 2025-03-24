@@ -1,5 +1,5 @@
-Welcome to prometheus-summary documentation!
-============================================
+prometheus-summary
+==================
 
 `Prometheus-summary library <https://github.com/RefaceAI/prometheus-summary>`_ adds support of quantiles calculation for the Summary metric.
 It is fully compatible with the official `Python Prometheus client library <https://github.com/prometheus/client_python>`_.
@@ -9,7 +9,7 @@ Installation
 
 .. code-block:: console
 
-    pip install prometheus-summary==0.1.4
+    pip install prometheus-summary==0.1.5
 
 This package can be found on `PyPI <https://pypi.org/project/prometheus-summary/>`_.
 
