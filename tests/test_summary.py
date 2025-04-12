@@ -2,10 +2,9 @@ import random
 
 import pytest
 from prometheus_client import CollectorRegistry
+from prometheus_client.exposition import generate_latest
 
 from prometheus_summary import Summary
-
-from prometheus_client.exposition import generate_latest
 
 
 @pytest.fixture()
